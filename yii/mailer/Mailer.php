@@ -122,6 +122,16 @@ class Mailer extends \yii\base\Object
         return $this->message->setTo($addresses);
     }
 
+    public function setSubject($subject)
+    {
+        return $this->message->setSubject($subject);
+    }
+
+    public function setBody($body)
+    {
+        return $this->message->setBody($body);
+    }
+
     /**
      * 
      * @param string $view
