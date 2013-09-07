@@ -84,11 +84,6 @@ class Mailer extends \yii\base\Object
     public $from = array('webmaster@localhost', 'Webmaster');
 
     /**
-     * @var array An array of failures by-reference
-     */
-    public $failedRecipients = array();
-
-    /**
      * @var string A alias folder stored email template to render with method [[renderTemplate()]]
      */
     public $viewPath = '@app/views/mailer';
