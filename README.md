@@ -44,7 +44,7 @@ This example use with transport type is **smtp** with live server email.
         $mailer->setTo(array('recipient@domain.ltd' => 'Recipient Name'));
         $mailer->setSubject('Subject of this message');
         $mailer->attachment(Yii::getAlias('@webroot/images/noavatar.png'));
-        $logoSrc = $mailer->embedImage(Yii::getAlias('@webroot/images/logo.png'), 'logo.png');
+        $logoSrc = $mailer->embedImage(Yii::getAlias('@webroot/images/logo.png'), 'brand.png');
         $body = $mailer->renderTemplate('testemail', array('logo' => $logoSrc));
         $mailer->setBody($body);
         if(!$mailer->send()){
