@@ -165,7 +165,7 @@ class Mailer extends \yii\base\Object
      * ```php
      *      $mailer->setTo('name@domain'=>'Your Name');
      * ```
-     * @param string|array $addresses
+     * @param string|array $addresses List addresses to send message.
      * @return \Swift_Message
      */
     public function setTo($addresses)
