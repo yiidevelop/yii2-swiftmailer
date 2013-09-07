@@ -34,7 +34,7 @@ class Mailer extends \yii\base\Object
     public $charset = 'utf-8';
 
     /**
-     * @var string The Content-type of this message.
+     * @var string The Content-Type of this message.
      */
     public $contentType = 'text/html';
 
