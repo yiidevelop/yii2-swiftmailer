@@ -2,6 +2,10 @@ Swift Mailer library for Yii2
 ================
 This is the yii2-swiftmailer extension.
 
+This extension is in the process of construction.
+
+You can test it and contributed to the building with us.
+
 Requirements
 ------------
 
@@ -66,6 +70,4 @@ Create view file testemail.php on web/views/emailtemplate folder.
     <p>Thank you for choosing yii2-swiftmailer component</p>
 ```
 
-This extension is in the process of construction. 
-You can test it and contributed to the building with us.
 
