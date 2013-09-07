@@ -21,7 +21,7 @@ use Yii;
 class Mailer extends \yii\base\Object
 {
 
-    public $priperty = 3;
+    public $priority = 3;
     public $charset = 'utf-8';
     public $contentType = 'text/html';
     public $transportType = 'php';
@@ -53,8 +53,9 @@ class Mailer extends \yii\base\Object
     {
         if (empty($this->_message)) {
             $this->_message = \Swift_Message::newInstance();
-            $this->_message->setCharset($this->charset);
             $this->_message->setPriority($this->priority);
+            $this->_message->setCharset($this->charset);
+            $this->_message->setContentType($this->contentType);
             $this->_message->setFrom($this->from);
         }
         return $this->_message;
