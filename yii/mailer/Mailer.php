@@ -275,6 +275,10 @@ class Mailer extends \yii\base\Object
         return $this->mailer->send($this->message, $this->_failedRecipients);
     }
 
+    /**
+     * Returns list of the recipients sending failed.
+     * @return mixed The recipients sending failed
+     */
     public function getFailedRencipients()
     {
         return empty($this->_failedRecipients) ? false : $this->_failedRecipients;
