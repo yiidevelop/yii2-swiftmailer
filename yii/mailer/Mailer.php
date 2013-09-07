@@ -91,7 +91,7 @@ class Mailer extends \yii\base\Object
     /**
      * @var array An array of failures by-reference
      */
-    public $_failedRecipients = array();
+    private $_failedRecipients = array();
 
     /**
      * The Transport used to send messages 
