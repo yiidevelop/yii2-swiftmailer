@@ -53,7 +53,7 @@ This example use with transport type is **smtp** with live server email.
             echo "Message sent successful.";
         }
 ```
-Create view file testemail.php on web/view/emailtemplate folder
+Create view file testemail.php on web/views/emailtemplate folder.
 
 ```
     <div id="#brand"><img src="<?php echo $logo; ?>" /></div>
