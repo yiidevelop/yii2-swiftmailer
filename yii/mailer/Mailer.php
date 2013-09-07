@@ -43,6 +43,38 @@ class Mailer extends \yii\base\Object
      * Case smtp Transport call Swift_SmtpTransport, case sendmail Transport call Swift_SendmailTransport, default to call Swift_MailTransport
      */
     public $transportType;
+
+    /**
+     *
+     * The options for Transport
+     * Example for transport type is smtp
+     * ```php
+     *  $mailer = new yii\mailer\Mailer(array(
+     *      'transportType' => 'smtp',
+     *      'transportOptions' => array(
+     *          'host' => 'smtp.live.com',
+     *          'port' => 587,
+     *          'encryption' => 'tls',
+     *          'username' => 'yourname@hotmail.com',
+     *          'password' => 'your password',
+     *      ),
+     *      'from' => array('yourname@hotmail.com' => 'Your Name'),
+     *      'failedRecipients' => array('yourother@hotmail.com' => 'Your Name'),
+     *  ));
+     * ```
+     * Example for transport type is sendmail
+     * ```php
+     *  $mailer = new yii\mailer\Mailer(array(
+     *      'transportType' => 'sendmail',
+     *      'transportOptions' => array(
+     *          'command' => '/usr/sbin/exim -bs', //default $command is /usr/sbin/sendmail -bs
+     *      ),
+     *      'from' => array('yourname@hotmail.com' => 'Your Name'),
+     *      'failedRecipients' => array('yourother@hotmail.com' => 'Your Name'),
+     *  ));
+     * ```
+     * @var array The Transport Options 
+     */
     public $transportOptions = array();
 
     /**
