@@ -115,13 +115,19 @@ class Mailer extends \yii\base\Object
      * Add a To: address to this message.
      * If $name is passed this name will be associated with the address.
      * @param string|array $address
-     * @return Swift_Mime_SimpleMessage
+     * @return \Swift_Message
      */
     public function setTo($addresses)
     {
         return $this->message->setTo($addresses);
     }
 
+    /**
+     * 
+     * @param string $view
+     * @param type $params
+     * @return string
+     */
     public function renderTemplate($view, $params = array())
     {
         $view = Yii::getAlias($this->viewPath) . DIRECTORY_SEPARATOR . $view . '.php';
@@ -137,7 +143,7 @@ class Mailer extends \yii\base\Object
      */
     public function send()
     {
-        return $this->_mailer->send($this->message, $this->failedRecipients);
+        return $this->mailer->send($this->message, $this->failedRecipients);
     }
 
 }
