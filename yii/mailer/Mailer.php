@@ -170,7 +170,7 @@ class Mailer extends \yii\base\Object
      * @param string $path Path a file to attach. (ex: Yii::getAlias('@webroot/upload/docs.pdf'); ).
      * @param string $filename The visual file name for attachment file. (ex: document.pdf).
      * @param string $contentType The header content type of file. (ex: application/pdf).
-     * @return type
+     * @return \Swift_Message
      */
     public function attachment($path, $filename = null, $contentType = null)
     {
@@ -181,6 +181,14 @@ class Mailer extends \yii\base\Object
         return $this->message->attach($attachment);
     }
 
+    /**
+     * Attach a [[Swift_Mime_MimeEntity]] and return it's CID source.
+     * This method should be used when embedding images or other data in a message.
+     * @param string $path The path of file image to embed.
+     * @param string $filename The visual filename of image.
+     * @param string $contentType The Content-Type of file image.
+     * @return \Swift_Message
+     */
     public function embedImage($path, $filename = null, $contentType = null)
     {
         $image = \Swift_Image::fromPath($path);
@@ -215,8 +223,8 @@ class Mailer extends \yii\base\Object
 
     /**
      * Set the subject of this message.
-     * @param string $subject
-     * @return \Swift_Message $message
+     * @param string $subject The subject of message.
+     * @return \Swift_Message
      */
     public function setSubject($subject)
     {
@@ -225,8 +233,8 @@ class Mailer extends \yii\base\Object
 
     /**
      * Set the body of this message.
-     * @param string $body
-     * @return \Swift_Message $message
+     * @param string $body The body of message.
+     * @return \Swift_Message
      */
     public function setBody($body)
     {
@@ -250,7 +258,7 @@ class Mailer extends \yii\base\Object
      * All recipients (with the exception of Bcc) will be able to see the other recipients this message was sent to.
      * Recipient/sender data will be retrieved from the Message object.
      * The return value is the number of recipients who were accepted for delivery.
-     * @return integer
+     * @return integer An integer is returned which includes the number of successful recipients
      */
     public function send()
     {
