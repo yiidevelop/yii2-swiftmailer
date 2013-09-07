@@ -66,6 +66,6 @@ Create view file testemail.php on web/views/emailtemplate folder.
     <p>Thank you for choosing yii2-swiftmailer component</p>
 ```
 
-For further instructions refer to the guide. we'll complete it one this moment.
+This extension is in the process of construction. 
+You can test it and contributed to the building with us.
 
-Thank you for using our extension.
