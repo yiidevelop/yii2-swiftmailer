@@ -217,8 +217,12 @@ class Mailer extends \yii\base\Object
     public function setTo($addresses)
     {
         if (is_array($addresses)) {
-            foreach ($addresses as $address) {
-                $this->message->addTo($address);
+            foreach ($addresses as $address=>$name) {
+                if(!is_numeric($address)){
+                    $this->message->addTo($address,$name);
+                }else{
+                    $this->message->addTo($name);
+                }
             }
         } else {
             $this->message->setTo($addresses);

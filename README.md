@@ -62,7 +62,7 @@ Create view file testemail.php on web/views/emailtemplate folder.
 
 ```
     <div id="#brand"><img src="<?php echo $logo; ?>" /></div>
-    <h1>Test email usage yii2-swiftmailer extension</h1>
+    <h1>Test email used yii2-swiftmailer extension</h1>
     <h2>Congratulations!</h2>
     <p>You have successfully sent email.</p>
     <p>If you have any questions please contact us via email yiidevelop@hotmail.com</p>
