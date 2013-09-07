@@ -18,6 +18,7 @@ use Yii;
  * @property \Swift_Mailer $mailer Swift Mailer class.
  * @property \Swift_Message $message Message (RFC 2822) object.
  * @property \Swift_Transport $transport The Transport used to send messages.
+ * @property mixed $failedRecipients Failures by-reference
  */
 class Mailer extends \yii\base\Object
 {
@@ -86,7 +87,16 @@ class Mailer extends \yii\base\Object
      * @var array An array of failures by-reference
      */
     public $failedRecipients = array();
+
+    /**
+     * @var string A alias folder stored email template to render with method [[renderTemplate()]]
+     */
     public $viewPath = '@app/views/mailer';
+
+    /**
+     * @var array An array of failures by-reference
+     */
+    public $_failedRecipients = array();
 
     /**
      * The Transport used to send messages 
@@ -262,7 +272,12 @@ class Mailer extends \yii\base\Object
      */
     public function send()
     {
-        return $this->mailer->send($this->message, $this->failedRecipients);
+        return $this->mailer->send($this->message, $this->_failedRecipients);
+    }
+
+    public function getFailedRencipients()
+    {
+        return empty($this->_failedRecipients) ? false : $this->_failedRecipients;
     }
 
 }
