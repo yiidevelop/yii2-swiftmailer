@@ -39,9 +39,10 @@ class Mailer extends \yii\base\Object
     public $contentType = 'text/html';
 
     /**
-     * @var string The Transport used to send messages. cases smtp|sendmail default is php.
+     * @var string The Transport used to send messages. cases smtp|sendmail|null.
+     * Case smtp Transport call Swift_SmtpTransport, case sendmail Transport call Swift_SendmailTransport, default to call Swift_MailTransport
      */
-    public $transportType = 'php';
+    public $transportType;
     public $transportOptions = array();
 
     /**
