@@ -94,17 +94,17 @@ class Mailer extends \yii\base\Object
     /**
      * The Transport used to send messages 
      */
-    protected $_transport;
+    private $_transport;
 
     /**
      * The Message (RFC 2822) object.
      */
-    protected $_message;
+    private $_message;
 
     /**
      * Swift Mailer class.
      */
-    protected $_mailer;
+    private $_mailer;
 
     /**
      * Swift Mailer class.
