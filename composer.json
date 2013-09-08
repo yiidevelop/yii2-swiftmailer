@@ -1,6 +1,6 @@
 {
     "name": "yiidoc/yii2-swiftmailer",
-    "description": "Component Mailer for Yii2 Framework comers SwiftMailer library",
+    "description": "Component Mailer for Yii2 Framework wrapper SwiftMailer library.",
     "keywords": ["yii2", "component", "mailer", "swiftmailer"],
     "homepage": "http://www.yiidoc.com/",
     "type": "library",
