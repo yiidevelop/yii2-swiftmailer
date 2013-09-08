@@ -59,8 +59,7 @@ class Mailer extends \yii\base\Object
      *          'username' => 'yourname@hotmail.com',
      *          'password' => 'your password',
      *      ),
-     *      'from' => array('yourname@hotmail.com' => 'Your Name'),
-     *      'failedRecipients' => array('yourother@hotmail.com' => 'Your Name'),
+     *      'from' => array('yourname@hotmail.com' => 'Your Name')
      *  ));
      * ```
      * Example for transport type is sendmail
@@ -70,8 +69,7 @@ class Mailer extends \yii\base\Object
      *      'transportOptions' => array(
      *          'command' => '/usr/sbin/exim -bs', //default $command is /usr/sbin/sendmail -bs
      *      ),
-     *      'from' => array('yourname@hotmail.com' => 'Your Name'),
-     *      'failedRecipients' => array('yourother@hotmail.com' => 'Your Name'),
+     *      'from' => array('yourname@hotmail.com' => 'Your Name')
      *  ));
      * ```
      * @var array The Transport Options 
@@ -217,10 +215,10 @@ class Mailer extends \yii\base\Object
     public function setTo($addresses)
     {
         if (is_array($addresses)) {
-            foreach ($addresses as $address=>$name) {
-                if(!is_numeric($address)){
-                    $this->message->addTo($address,$name);
-                }else{
+            foreach ($addresses as $address => $name) {
+                if (!is_numeric($address)) {
+                    $this->message->addTo($address, $name);
+                } else {
                     $this->message->addTo($name);
                 }
             }
