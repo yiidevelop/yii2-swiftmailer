@@ -41,7 +41,7 @@ class Mailer extends \yii\base\Object
 
     /**
      * @var string The Transport used to send messages. cases smtp|sendmail|null.
-     * Case smtp Transport call Swift_SmtpTransport, case sendmail Transport call Swift_SendmailTransport, default to call Swift_MailTransport
+     * Case smtp Transport call [[Swift_SmtpTransport]], case sendmail Transport call [[Swift_SendmailTransport]], default to call [[Swift_MailTransport]]
      */
     public $transportType;
 
