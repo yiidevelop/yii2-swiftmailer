@@ -6,6 +6,11 @@ This extension is in the process of construction.
 
 You can test it and contributed to the building with us.
 
+[![Latest Stable Version](https://poser.pugx.org/yiidoc/yii2-swiftmailer/v/stable.png)](https://packagist.org/packages/yiidoc/yii2-swiftmailer)
+[![Total Downloads](https://poser.pugx.org/yiidoc/yii2-swiftmailer/downloads.png)](https://packagist.org/packages/yiidoc/yii2-swiftmailer)
+[![Build Status](https://secure.travis-ci.org/yiidoc/yii2-swiftmailer.png)](http://travis-ci.org/yiidoc/yii2-swiftmailer) 
+[![Dependency Status](https://www.versioneye.com/php/yiidoc:yii2-swiftmailer/dev-master/badge.png)](https://www.versioneye.com/php/yiidoc:yii2-swiftmailer/dev-master)
+  
 Requirements
 ------------
 
