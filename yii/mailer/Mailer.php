@@ -13,7 +13,6 @@ use Yii;
 /**
  * The component mailer for yii2 framework to send email message.
  * 
- * @property \Swift_Mailer $mailer Swift Mailer class.
  * @property \Swift_Message $message Message (RFC 2822) object.
  * @property \Swift_Transport $transport The Transport used to send messages.
  * @property mixed $failedRecipients Failures by-reference
@@ -102,20 +101,23 @@ class Mailer extends \yii\base\Object
     private $_message;
 
     /**
-     * Swift Mailer class.
+     * Create a new class instance of one of the message services.
+     * For example 'mimepart' would create a 'message.mimepart' instance
+     * @param string $service
+     * @return object
      */
-    private $_mailer;
+    public function createMessage($service = 'message')
+    {
+        return \Swift_DependencyContainer::getInstance()->lookup('message.' . $service);
+    }
 
     /**
-     * Swift Mailer class.
-     * @return \Swift_Mailer
+     * Register a plugin using a known unique key (e.g. myPlugin).
+     * @param \Swift_Events_EventListener $plugin
      */
-    public function getMailer()
+    public function registerPlugin(\Swift_Events_EventListener $plugin)
     {
-        if (empty($this->_mailer)) {
-            $this->_mailer = new \Swift_Mailer($this->getTransport());
-        }
-        return $this->_mailer;
+        $this->transport->registerPlugin($plugin);
     }
 
     /**
@@ -269,14 +271,24 @@ class Mailer extends \yii\base\Object
      */
     public function send()
     {
-        return $this->mailer->send($this->message, $this->_failedRecipients);
+        if (!$this->transport->isStarted()) {
+            $this->transport->start();
+        }
+        try {
+            $success = $this->transport->send($this->message, $this->_failedRecipients);
+        } catch (\Swift_RfcComplianceException $e) {
+            foreach ($this->message->getTo() as $address => $name) {
+                $this->_failedRecipients[] = $address;
+            }
+        }
+        return $success;
     }
 
     /**
      * Returns list of the recipients sending failed.
      * @return mixed The recipients sending failed
      */
-    public function getFailedRencipients()
+    public function getFailedRecipients()
     {
         return empty($this->_failedRecipients) ? false : $this->_failedRecipients;
     }
