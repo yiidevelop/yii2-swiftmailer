@@ -209,7 +209,7 @@ class Mailer extends \yii\base\Object
     /**
      * Add a To: address to this message.
      * ```php
-     *      $mailer->setTo('name@domain'=>'Your Name');
+     *      $mailer->setTo('name@domain'=>'Recipient Name');
      * ```
      * @param string|array $addresses List addresses to send message.
      * @return \Swift_Message
