@@ -48,7 +48,7 @@ class Mailer extends \yii\base\Object
      * The options for Transport
      * Example for transport type is smtp
      * ```php
-     *  $mailer = new yii\mailer\Mailer(array(
+     *  $mailer = new \yii\mailer\Mailer(array(
      *      'transportType' => 'smtp',
      *      'transportOptions' => array(
      *          'host' => 'smtp.live.com',
@@ -62,7 +62,7 @@ class Mailer extends \yii\base\Object
      * ```
      * Example for transport type is sendmail
      * ```php
-     *  $mailer = new yii\mailer\Mailer(array(
+     *  $mailer = new \yii\mailer\Mailer(array(
      *      'transportType' => 'sendmail',
      *      'transportOptions' => array(
      *          'command' => '/usr/sbin/exim -bs', //default $command is /usr/sbin/sendmail -bs
